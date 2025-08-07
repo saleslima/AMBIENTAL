@@ -1,0 +1,129 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Ambiental</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Relatório de Ocorrência Ambiental</h1>
+            <button id="adminBtn" class="admin-btn">Admin</button>
+        </header>
+
+        <form id="ocorrenciaForm" class="form-container">
+            <div class="form-group">
+                <label for="equipe">Equipe:</label>
+                <input type="text" id="equipe" name="equipe" required>
+            </div>
+
+            <div class="form-group">
+                <label for="vtr">VTR:</label>
+                <input type="text" id="vtr" name="vtr" value="A-0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="web">WEB (opcional):</label>
+                <input type="text" id="web" name="web">
+            </div>
+
+            <div class="form-group">
+                <label for="demanda">Demanda:</label>
+                <select id="demanda" name="demanda" required>
+                    <option value="">Selecione uma opção</option>
+                    <option value="1">1ª</option>
+                    <option value="2">2ª</option>
+                    <option value="3">3ª</option>
+                    <option value="4">4ª</option>
+                    <option value="5">5ª</option>
+                    <option value="6">6ª</option>
+                    <option value="almoco">Almoço</option>
+                    <option value="janta">Janta</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Tipo de Ocorrência:</label>
+                <select id="tipoOcorrencia" name="tipoOcorrencia" required>
+                    <option value="">Selecione uma opção</option>
+                    <option value="flora">Flora</option>
+                    <option value="fauna">Fauna</option>
+                    <option value="fauna_ictiologica">Fauna Ictiológica</option>
+                    <option value="outros">Outros</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="outrosTextGroup" style="display: none;">
+                <label for="outrosText">Especifique outros:</label>
+                <input type="text" id="outrosText" name="outrosText" placeholder="Descreva o tipo de ocorrência (mínimo 10 caracteres)" required>
+                <small style="color: #666; font-size: 12px;">Mínimo 10 caracteres</small>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="horaInicial">Hora Inicial:</label>
+                    <input type="time" id="horaInicial" name="horaInicial" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="horaFinal">Hora Final:</label>
+                    <input type="time" id="horaFinal" name="horaFinal" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" required>
+            </div>
+
+            <div class="form-group">
+                <label for="coord">Coordenadas:</label>
+                <input type="text" id="coord" name="coord" placeholder="Ex: -23.550520 46.633308 150.25 -46.633308" required>
+            </div>
+
+            <div class="form-group">
+                <label for="municipio">Município:</label>
+                <input type="text" id="municipio" name="municipio" required>
+            </div>
+
+            <div class="form-group">
+                <label for="historico">Histórico:</label>
+                <textarea id="historico" name="historico" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-salvar">Salvar</button>
+        </form>
+
+        <!-- Admin Modal -->
+        <div id="adminModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>⚡ Login Administrativo</h2>
+                <form id="adminLoginForm">
+                    <div class="form-group">
+                        <label for="adminUser">Usuário:</label>
+                        <input type="text" id="adminUser" name="adminUser" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adminPassword">Senha:</label>
+                        <input type="password" id="adminPassword" name="adminPassword" required>
+                    </div>
+                    <button type="submit" class="btn-salvar">Entrar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Admin Panel -->
+        <div id="adminPanel" style="display: none;">
+            <div class="admin-header">
+                <h2>⚡ Painel Administrativo</h2>
+                <button id="logoutBtn" class="logout-btn">Sair</button>
+            </div>
+            <div id="recordsContainer"></div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
